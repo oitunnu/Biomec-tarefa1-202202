@@ -1,0 +1,124 @@
+// The program gives the point of intersection
+// of two lines by taking input from users
+
+
+
+// function to create chart with user input
+window.onload = function () {
+    var data = []; // dataPoints from user
+    var data2 = [];
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        axisX:{
+            title: "Axis X",
+        },
+        axisY:{
+            title: "Axis Y",
+        },
+        title:{
+            text: "Intersection of two lines"
+        },
+        data: [
+        {
+            type: "line",
+            name: "Line 1",
+            dataPoints: data
+        },
+        {
+            type: "line",            
+            name: "Line 2",
+            dataPoints: data2
+        }
+            
+        ]
+    });
+   
+    function cruzreta() {
+        // get user input from HTML
+        var xc1 = Number(document.getElementById("xc1").value);
+        var yc1 = Number(document.getElementById("yc1").value);
+        var xp1 = Number(document.getElementById("xp1").value);
+        var yp1 = Number(document.getElementById("yp1").value);
+    
+        var xc2 = Number(document.getElementById("xc2").value);
+        var yc2 = Number(document.getElementById("yc2").value);
+        var xp2 = Number(document.getElementById("xp2").value);
+        var yp2 = Number(document.getElementById("yp2").value);
+    
+              
+        var c1 = [xc1,yc1];
+        var p1 = [xp1,yp1];
+        var c2 = [xc2,yc2];
+        var p2 = [xp2,yp2];
+        
+        var r1 = [c1, p1];
+        var r2 = [c2, p2];
+        
+        var horiz = input('nome do eixo na horizontal:   ','s');
+        var vert = input('nome do eixo vertical:   ','s');
+        
+        var mr1 = (yp1 - yc1) / (xp1 - xc1) // coeficiente angular de r1
+        var mr2 = (yp2 - yc2) / (xp2 - xc2) // coeficiente angular de r2
+        
+        var br1 = -1 * (mr1 * xc1 - yc1) // coeficiente linear de r1
+        var br2 = -1 * (mr2 * xc2 - yc2) // coeficiente linear de r2
+        
+        // br1 = yc1 - mr1*xc1 % coeficiente linear de r1
+        // br2 = yc2 - mr2*xc2 % coeficiente linear de r2
+        
+        
+        // y - yc1 = mr1(x - xc1) equacao da reta 1
+        // y - yc2 = mr2(x - xc2) equacao da reta 2
+        
+        // get the values of the intersection and display it
+        var dx = (-(mr2*xc2) + yc2 + (mr1*xc1) - yc1) / (mr1 - mr2); // x do cruzamento
+        var dy = (mr1*x)  - (mr1*xc1) + yc1; // y do cruzamento
+
+        document.getElementById("answer").innerHTML = "The intersection x is: " + dx;
+        document.getElementById("answer1").innerHTML = "The intersection y is: " + dy;
+        
+        // push datapoints to create chart
+        data.push(
+            {x: xc1, y: yc1},
+            {x: xp1, y: yp1}            
+        );
+
+        data2.push(
+            {x: xc2, y: yc2},
+            {x: xp2, y: yp2}
+        );
+        chart.render();
+    
+    }
+
+    var renderButton = document.getElementById("renderButton");
+    renderButton.addEventListener("click", cruzreta);
+}
+
+
+/*  reta r: y = a1x + b1
+    reta s: y = a2x + b2
+    o ponto de intersecao por exemplo quando yr = ys
+    yr = ys
+    a1x + b1 = a2x + b2
+    (a1 - a2)x = (b2 - b1)
+    x = (b2 - b1)/(a1 - a2)
+    y = a1x + b1 = a1( (b2 - b1)/(a1 - a2) ) + b1
+    y = (a1.b2 - b1.a2)(a1 - a2) */
+// function [cr] = cruzreta(xc1,yc1,xp1,yp1,xc2,yc2,xp2,yp2)
+
+/*figure
+grid on
+plot(r1(:,1),r1(:,2),r2(:,1),r2(:,2))
+grid on
+xlabel(horiz)
+ylabel(vert)
+legend('r1','r2')
+%[x,y]=ginput(1);
+hold on
+plot(x,y,'+r')
+%pause
+
+cr=[x,y];
+disp(cr)
+pause()*/

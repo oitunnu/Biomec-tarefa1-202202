@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection of two lines</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row mb-3">
+        <div class="form-control">
+            <span class="input-group-text">X value for Camera 1:</span>
+            <input id="xc1" type="number" step="any" placeholder="Enter xc1 value">
+            <span class="input-group-text">Y value for Camera 1:</span>
+            <input id="yc1" type="number" step="any" placeholder="Enter yc1 value">
+        </div>
+
+        
+    </div>
+
+    <div class="row mb-3">
+        <div class="form-control">
+            <span class="input-group-text">X value for Projection 1:</span>
+            <input id="xp1" type="number" step="any" placeholder="Enter xp1 value">
+            <span class="input-group-text">Y value for Projection 1:</span>
+            <input id="yp1" type="number" step="any" placeholder="Enter yp1 value">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="form-control">
+            <span class="input-group-text">X value for Camera 2:</span>
+            <input id="xc2" type="number" step="any" placeholder="Enter xc1 value">
+            <span class="input-group-text">Y value for Camera 2:</span>
+            <input id="yc2" type="number" step="any" placeholder="Enter yc1 value"> 
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="form-control">
+            <span class="input-group-text">X value for Projection 2:</span>
+            <input id="xp2" type="number" step="any" placeholder="Enter xp1 value">
+            <span class="input-group-text">Y value for Projection 2:</span>
+            <input id="yp2" type="number" step="any" placeholder="Enter yp1 value">
+        </div>
+    </div>
+    
+    <button id="renderButton">Create chart</button>
+    <div id="chartContainer" style="height: 300px; width: 100%;">
+    </div>
+
+    <p id="answer"></p>
+    <p id="answer1"></p>
+</body>
+
+<!-- Javascript code -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="js/index.js"></script>
+
+</html>
