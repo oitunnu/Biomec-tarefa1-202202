@@ -1,8 +1,8 @@
+// CODE CURRENTLY NOT WORKING, NEED REVIEW, USE PYTHON VERSION
+
 // The program gives the point of intersection
 // of two lines by taking input from users
-
-
-
+/*
 // function to create chart with user input
 window.onload = function () {
     var data = []; // dataPoints from user
@@ -28,9 +28,7 @@ window.onload = function () {
             type: "line",            
             name: "Line 2",
             dataPoints: data2
-        }
-            
-        ]
+        }]
     });
    
     function cruzreta() {
@@ -122,3 +120,46 @@ plot(x,y,'+r')
 cr=[x,y];
 disp(cr)
 pause()*/
+
+// get user input from HTML
+
+
+function draw() {
+    const canvas = document.getElementById('myChart');
+    var xyValues = [
+    {x:Number(document.getElementById("xc1").value), y:Number(document.getElementById("yc1").value)},
+    {x:Number(document.getElementById("xp1").value), y:Number(document.getElementById("yp1").value)},
+    {x:Number(document.getElementById("xc2").value), y:Number(document.getElementById("yc2").value)},
+    {x:Number(document.getElementById("xp2").value), y:Number(document.getElementById("yp2").value)}
+    ];
+
+    if (canvas.getContext) {
+        const ctx = canvas.getContext('2d');
+        
+
+        // drawing code here
+        ctx.beginPath();
+        ctx.moveTo(xc1, yc1);
+        ctx.lineTo(xp1, yp1);
+        ctx.moveTo(xc2, yc2);
+        ctx.lineTo(xp2, yp2);
+        ctx.stroke();
+    }
+    
+}
+
+var renderButton = document.getElementById("renderButton");
+    renderButton.addEventListener("click", draw);
+
+
+/*const data = {
+    datasets: [{
+        label: 'Intersection',
+        data: []
+    }]
+}
+
+const config = {
+    type: 'line',
+    data: data,
+};*/
